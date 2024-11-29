@@ -1,12 +1,16 @@
 import modelo.Holerite;
 import modelo.OrdemServico;
 import modelo.Beneficiario;
+import modelo.PagamentoPix;
+import pagamento.MetodoPagamento;
 import servicos.ServicoContaPagar;
 
 public class Main {
     public static void main(String[] args) {
 
-        ServicoContaPagar scp = new ServicoContaPagar();
+
+        MetodoPagamento metodoPagamento = new PagamentoPix();
+        ServicoContaPagar scp = new ServicoContaPagar(metodoPagamento);
 
         Beneficiario funcionario = new Beneficiario("Paulo Marcos", "93280-2398-122891", "23892");
         Holerite holerite = new Holerite(funcionario, 19.45, 176);
